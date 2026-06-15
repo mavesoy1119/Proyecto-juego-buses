@@ -6,7 +6,7 @@
 #include "Parqueo.h"
 #include "Fila.h"
 
-class 
+class GestorArchivos
 {
     public:
     GestorArchivos();
