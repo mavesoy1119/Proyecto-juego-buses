@@ -1,12 +1,12 @@
-#ifndef CARRO_H
-#define CARRO_H
+#ifndef BUSETA_H
+#define BUSETA_H
 #include "Vehiculo.h"
 
-class Carro : public Vehiculo
+class Buseta : public Vehiculo
 {
     public:
     
-    Carro(const std::string color,
+    Buseta(const std::string color,
              int fila,
              int columna,
              int pasajerosAbordo,
