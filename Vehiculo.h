@@ -2,38 +2,39 @@
 #define VEHICULO_h
 
 #include <string>
+using namespace std;
 
 class Vehiculo
 {
-    private:
-    const std::string color;
+    protected:
+    string color;
     int fila;
     int columna;
     int pasajerosAbordo;
-    const int largo;
-    const int capacidad;
+    int largo;
+    int capacidad;
     char orientacion;
 
     public:
 
-    Vehiculo(const std::string color,
-             int fila,
-             int columna,
-             int pasajerosAbordo,
-             const int largo,
-             const int capacidad,
-             char orientacion);
+    Vehiculo(string auxColor, int auxFila, int auxColumna, char auxOrientacion);
+    virtual ~ Vehiculo();
     
-    std::string getColor();
-    int getFila();
-    int getColumna();
-    int getPasajerosAbordo();
-    int getLargo();
-    int getCapacidad();
-    char getOrientacion();
+    string getColor() const;
+    int getFila()const;
+    int getColumna()const;
+    int getPasajerosAbordo()const;
+    int getLargo()const;
+    int getCapacidad()const;
+    char getOrientacion()const;
 
-    void SubirPasajero();
-    bool EstaLleno();
+    void setFila(int nuevaFila);
+    void setColumna(int nuevaColumna);
+
+    bool subirPasajero();
+    bool estaLleno() const;
+
+    virtual string getTipo() const = 0;
 
 };
 

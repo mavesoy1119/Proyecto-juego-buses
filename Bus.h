@@ -6,13 +6,7 @@ class Bus : public Vehiculo
 {
     public:
     
-    Bus(const std::string color,
-             int fila,
-             int columna,
-             int pasajerosAbordo,
-             const int largo,
-             const int capacidad,
-             char orientacion);
-
+     Bus(string color, int fila, int columna, char orientacion);
+     string getTipo() const override;
 };
 #endif

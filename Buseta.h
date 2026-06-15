@@ -6,13 +6,8 @@ class Buseta : public Vehiculo
 {
     public:
     
-    Buseta(const std::string color,
-             int fila,
-             int columna,
-             int pasajerosAbordo,
-             const int largo,
-             const int capacidad,
-             char orientacion);
+     Buseta(string auxColor, int auxFila, int auxColumna, char auxOrientacion);
 
+     string getTipo() const override;
 };
 #endif
