@@ -1,9 +1,13 @@
+#ifndef FILA_H
+#define FILA_H
+
 #include <queue>
 #include "Pasajero.h"
 
 using namespace std;
 
-class Fila {
+class Fila 
+{
 private:
     queue<Pasajero> pasajeros;
 public:
@@ -13,3 +17,5 @@ public:
     void retirarPrimero();
     bool estaVacia();
 };
+
+#endif
