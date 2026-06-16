@@ -11,11 +11,14 @@ class Parqueo
 
     public:
 
-    Parqueo(int fila, int columna);
+     Parqueo(int fila, int columna);
     
-    int getFila();
-    int getColumna();
-    bool EstaOcupado();
+     int getFila() const;
+     int getColumna() const;
+     bool estaOcupado() const;
+
+     void ocupar();
+     void liberar();
 
 };
 #endif 

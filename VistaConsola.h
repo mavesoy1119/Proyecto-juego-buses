@@ -1,21 +1,35 @@
 #ifndef VISTACONSOLA_H
 #define VISTACONSOLA_H
 
-#include <string>
+#include "Tablero.h"
+#include "Fila.h"
+#include "Parqueo.h"
+#include "Vehiculo.h"
+#include <vector>
+using namespace std;
 
 class VistaConsola
 {
-    public:
+ public:
+    VistaConsola();
 
-    void MostrarTablero();
-    void MostrarMenu();
-    void MostrarFila();
-    void MostrarParqueaderos();
-    void MostrarVictoria();
-    void MostrarMensaje(std:: string mensaje);
-    void SolicitarNivel();
-    void SolicitarMovimiento();
+    void mostrarMenu();
+
+    int solicitarNivel();
+
+    void mostrarTablero(Tablero* tablero, vector<Vehiculo*> vehiculos);
+
+    void mostrarFila(Fila* fila);
+
+    void mostrarParqueaderos(vector<Parqueo*> parqueos);
+
+    int solicitarMovimiento();
+
+    void mostrarMensaje(string mensaje);
+
+    void mostrarVictoria();
     
+    void mostrarDerrota();
 };
 
 #endif

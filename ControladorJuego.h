@@ -6,27 +6,49 @@
 #include "Fila.h"
 #include "Parqueo.h"
 #include "GestorArchivos.h"
+#include "Vehiculo.h"
+#include <vector>
+using namespace std;
 
 class ControladorJuego
 {
     private:
-    Tablero tablero;
-    Fila fila;
-    std::vector<Parqueo>parqueos;
+    Tablero* tablero;
+    Fila* fila;
+    vector<Parqueo*>parqueos;
     GestorArchivos gestorArchivos;
+    vector<Vehiculo*> vehiculos;
 
     public:
 
     ControladorJuego();
+    ~ControladorJuego();
 
-    void IniciarNivel(int nivel);
-    void MoverVehiculoTablero();
-    void MoverVehiculoParqueo();
-    void AbordarPasajero();
-    bool ValidarMovimientoTablero();
-    bool ValidarMovimientoParqueo();
-    bool VerificarParqueo();
-    bool VerificarVictoria();
+    void iniciarNivel(int nivel);
 
-};
+    void moverVehiculoParqueo(int indice);
+
+    void moverVehiculoTablero(Vehiculo* vehiculo);
+
+    bool validarMovimientoTablero(Vehiculo* vehiculo);
+
+    bool validarMovimientoParqueo(Parqueo* parqueo);
+
+    void abordarPasajero(Vehiculo* vehiculo);
+
+    bool verificarParqueo();
+
+    bool verificarVictoria();
+
+    bool verificarDerrota();
+
+    Tablero* getTablero() const;
+    
+    vector<Vehiculo*> getVehiculos() const;
+
+    Fila* getFila() const;
+    
+    vector<Parqueo*> getParqueos() const;
+
+};  
 #endif

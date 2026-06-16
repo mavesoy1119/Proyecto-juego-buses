@@ -17,3 +17,10 @@ void Fila::retirarPrimero(){
 bool Fila::estaVacia(){
     return pasajeros.empty();
 }
+void Fila::mostrarFila() {
+    queue<Pasajero> copia = pasajeros;
+    while (!copia.empty()) {
+        cout << copia.front().getColor() << " ";
+        copia.pop();
+    }
+}

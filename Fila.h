@@ -3,7 +3,7 @@
 
 #include <queue>
 #include "Pasajero.h"
-
+#include <iostream>
 using namespace std;
 
 class Fila 
@@ -16,6 +16,7 @@ public:
     Pasajero obtenerPrimero();
     void retirarPrimero();
     bool estaVacia();
+    void mostrarFila();
 };
 
 #endif
