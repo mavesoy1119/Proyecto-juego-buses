@@ -4,7 +4,6 @@
 #include "Tablero.h"
 #include "Fila.h"
 #include "Parqueo.h"
-#include "Vehiculo.h"
 #include <vector>
 using namespace std;
 
@@ -28,7 +27,7 @@ class VistaConsola
     void mostrarMensaje(string mensaje);
 
     void mostrarVictoria();
-    
+
     void mostrarDerrota();
 };
 

@@ -1,5 +1,5 @@
 #ifndef TABLERO_H
-#define TABLERO_h
+#define TABLERO_H
 
 #include "Vehiculo.h"
 #include <vector>

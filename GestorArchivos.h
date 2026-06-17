@@ -16,7 +16,7 @@ class GestorArchivos{
     private:
      Tablero* tablero;
      vector<Vehiculo*> vehiculos;
-     vector<Parqueo*> parqueos;
+     int numParqueos;
      Fila* fila;
 
 
@@ -31,6 +31,8 @@ class GestorArchivos{
      vector<Vehiculo*> getVehiculos() const;
 
      vector<Parqueo*> getParqueos() const;
+
+     int getNumParqueos() const;
 
      Fila* getFila() const;
 

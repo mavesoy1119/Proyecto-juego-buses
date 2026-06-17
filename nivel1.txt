@@ -1,0 +1,10 @@
+7 7
+4
+
+Carro rojo 0 2 H
+Carro amarillo 2 0 H
+Bus azul 2 2 V
+Buseta verde 2 4 H
+
+PASAJEROS
+amarillo amarillo amarillo amarillo amarillo amarillo rojo rojo rojo rojo rojo rojo rojo rojo rojo rojo verde verde verde verde azul azul azul azul

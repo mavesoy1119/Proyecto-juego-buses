@@ -1,5 +1,5 @@
 #ifndef PARQUEO_H
-#define PARQUEO_h
+#define PARQUEO_H
 
 class Parqueo
 {

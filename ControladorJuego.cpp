@@ -1,9 +1,10 @@
 #include "ControladorJuego.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 ControladorJuego::ControladorJuego()
-    : tablero(nullptr), fila(nullptr) {
+    : tablero(nullptr), fila(nullptr), numParqueos(0), parqueosOcupados(0) {
 }
 
 ControladorJuego::~ControladorJuego() {
@@ -15,8 +16,23 @@ void ControladorJuego::iniciarNivel(int nivel) {
 
     tablero = gestorArchivos.getTablero();
     fila = gestorArchivos.getFila();
-    parqueos = gestorArchivos.getParqueos();
+    numParqueos = gestorArchivos.getNumParqueos();
     vehiculos = gestorArchivos.getVehiculos();
+    parqueosOcupados = 0;
+}
+
+bool ControladorJuego::llegoAlBorde(Vehiculo* vehiculo) {
+    char orientacion = vehiculo->getOrientacion();
+    int f = vehiculo->getFila();
+    int c = vehiculo->getColumna();
+    int largo = vehiculo->getLargo();
+
+    if (orientacion == 'N' && f == 0) return true;
+    if (orientacion == 'S' && f + largo - 1 == tablero->getFilas() - 1) return true;
+    if (orientacion == 'E' && c + largo - 1 == tablero->getColumnas() - 1) return true;
+    if (orientacion == 'O' && c == 0) return true;
+
+    return false;
 }
 
 bool ControladorJuego::validarMovimientoTablero(Vehiculo* vehiculo) {
@@ -43,10 +59,6 @@ bool ControladorJuego::validarMovimientoTablero(Vehiculo* vehiculo) {
         }
     }
     return true;
-}
-
-bool ControladorJuego::validarMovimientoParqueo(Parqueo* parqueo) {
-    return !parqueo->estaOcupado();
 }
 
 void ControladorJuego::moverVehiculoTablero(Vehiculo* vehiculo) {
@@ -79,25 +91,21 @@ void ControladorJuego::moverVehiculoParqueo(int indice) {
         return;
     }
 
-    Parqueo* parqueoLibre = nullptr;
-    for (Parqueo* p : parqueos) {
-        if (validarMovimientoParqueo(p)) {
-            parqueoLibre = p;
-            break;
-        }
-    }
-
-    if (parqueoLibre == nullptr) {
+    if (parqueosOcupados >= numParqueos) {
         cout << "No hay parqueos disponibles." << endl;
         return;
     }
 
-    while (vehiculo->getFila() != parqueoLibre->getFila() ||
-           vehiculo->getColumna() != parqueoLibre->getColumna()) {
+    // Mover hasta el borde
+    while (!llegoAlBorde(vehiculo)) {
         moverVehiculoTablero(vehiculo);
     }
 
-    parqueoLibre->ocupar();
+    // Retirar del tablero y agregar al parqueo
+    tablero->retirarVehiculo(vehiculo);
+    parqueosOcupados++;
+    vehiculosEnParqueo.push_back(vehiculo);
+
     abordarPasajero(vehiculo);
 }
 
@@ -118,15 +126,14 @@ void ControladorJuego::abordarPasajero(Vehiculo* vehiculo) {
         }
     }
 
+    // Si el vehículo está lleno liberar el parqueo
     if (vehiculo->estaLleno()) {
-        for (Parqueo* p : parqueos) {
-            if (p->getFila() == vehiculo->getFila() &&
-                p->getColumna() == vehiculo->getColumna()) {
-                p->liberar();
-                cout << "Parqueo liberado." << endl;
-                break;
-            }
-        }
+        parqueosOcupados--;
+        vehiculosEnParqueo.erase(
+            remove(vehiculosEnParqueo.begin(), vehiculosEnParqueo.end(), vehiculo),
+            vehiculosEnParqueo.end()
+        );
+        cout << "Parqueo liberado." << endl;
     }
 }
 
@@ -135,27 +142,21 @@ bool ControladorJuego::verificarVictoria() {
 }
 
 bool ControladorJuego::verificarDerrota() {
-    for (Parqueo* p : parqueos) {
-        if (!p->estaOcupado()) {
-            return false;
-        }
-    }
-
-    if (fila->estaVacia()) {
-        return false;
-    }
+    if (parqueosOcupados < numParqueos) return false;
+    if (fila->estaVacia()) return false;
 
     Pasajero primero = fila->obtenerPrimero();
-    for (Vehiculo* v : vehiculos) {
+    for (Vehiculo* v : vehiculosEnParqueo) {
         if (v->getColor() == primero.getColor() && !v->estaLleno()) {
             return false;
         }
     }
 
     return true;
-
 }
+
 Tablero* ControladorJuego::getTablero() const { return tablero; }
 vector<Vehiculo*> ControladorJuego::getVehiculos() const { return vehiculos; }
 Fila* ControladorJuego::getFila() const { return fila; }
-vector<Parqueo*> ControladorJuego::getParqueos() const { return parqueos; }
+int ControladorJuego::getNumParqueos() const { return numParqueos; }
+int ControladorJuego::getParqueosOcupados() const { return parqueosOcupados; }

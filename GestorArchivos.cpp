@@ -6,7 +6,7 @@
 using namespace std;
 
 GestorArchivos::GestorArchivos()
-    : tablero(nullptr), fila(nullptr) {
+    : tablero(nullptr), fila(nullptr), numParqueos(0) {
 }
 
 GestorArchivos::~GestorArchivos() {
@@ -26,26 +26,13 @@ void GestorArchivos::cargarArchivos(string nombreArchivo) {
     tablero = new Tablero(filas, columnas);
     fila = new Fila();
 
-    
-    int numParqueos;
+    // Leer número de parqueos
     archivo >> numParqueos;
 
     string linea;
-    getline(archivo, linea);
+    getline(archivo, linea); // consumir salto de línea
 
-
-   
-    for (int i = 0; i < numParqueos; i++) {
-        getline(archivo, linea);
-        istringstream ss(linea);
-        string tipo;
-        int f, c;
-        ss >> tipo >> f >> c;
-        Parqueo* p = new Parqueo(f, c);
-        parqueos.push_back(p);
-    }
-
-    
+    // Leer vehículos y pasajeros
     while (getline(archivo, linea)) {
         if (linea == "PASAJEROS") {
             getline(archivo, linea);
@@ -84,5 +71,5 @@ void GestorArchivos::cargarArchivos(string nombreArchivo) {
 
 Tablero* GestorArchivos::getTablero() const { return tablero; }
 vector<Vehiculo*> GestorArchivos::getVehiculos() const { return vehiculos; }
-vector<Parqueo*> GestorArchivos::getParqueos() const { return parqueos; }
+int GestorArchivos::getNumParqueos() const { return numParqueos; }
 Fila* GestorArchivos::getFila() const { return fila; }

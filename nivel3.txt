@@ -1,0 +1,18 @@
+15 12
+4
+
+Buseta Rojo 0 0 N
+Carro Azul 0 4 N
+Bus Azul 0 8 N
+Buseta Azul 3 2 N
+Carro Rojo 3 10 N
+Buseta Verde 5 5 N
+Carro Azul 6 10 N
+Bus Rojo 8 0 S
+Bus Verde 9 5 S
+Carro Verde 10 10 S
+Buseta Verde 12 3 S
+Buseta Rojo 12 8 S
+
+PASAJEROS
+Verde Azul Rojo Azul Verde Rojo Rojo Verde Azul Verde Rojo Azul Azul Verde Azul Rojo Verde Rojo Azul Verde Rojo Azul Verde Azul Rojo Rojo Verde Azul Verde Azul Rojo Verde Rojo Azul Verde Rojo Azul Verde Azul Rojo Verde Azul Rojo Azul Verde Rojo Azul Verde Verde Rojo Azul Verde Rojo Azul Verde Azul Rojo Rojo Verde Azul Verde Azul Rojo Azul Verde Rojo Azul Verde Azul Rojo Verde Rojo Rojo Verde Azul Verde Azul Rojo Verde Rojo Azul Verde Rojo Azul Rojo Verde Azul Rojo Verde Rojo Azul Verde Azul Rojo Verde Azul Rojo Azul Verde Rojo Azul Verde Verde Rojo Azul Verde Rojo Azul
