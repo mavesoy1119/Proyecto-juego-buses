@@ -72,10 +72,10 @@ void VistaConsola::mostrarFila(Fila* fila) {
     cout << endl;
 }
 
-void VistaConsola::mostrarParqueaderos(vector<Parqueo*> parqueos) {
+void VistaConsola::mostrarParqueaderos(int numParqueos, int parqueosOcupados) {
     cout << "Parqueos: ";
-    for (Parqueo* p : parqueos) {
-        if (p->estaOcupado()) {
+    for (int i = 0; i < numParqueos; i++) {
+        if (i < parqueosOcupados) {
             cout << "[Ocupado] ";
         } else {
             cout << "[Libre]   ";
