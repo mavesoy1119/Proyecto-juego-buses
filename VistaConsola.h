@@ -20,7 +20,7 @@ class VistaConsola
 
     void mostrarFila(Fila* fila);
 
-    void mostrarParqueaderos(vector<Parqueo*> parqueos);
+    void mostrarParqueaderos(int numParqueos, int parqueosOcupados);
 
     int solicitarMovimiento();
 

@@ -24,7 +24,7 @@ int main() {
                 // Mostrar estado del juego
                 vista.mostrarTablero(controlador.getTablero(), controlador.getVehiculos());
                 vista.mostrarFila(controlador.getFila());
-                vista.mostrarParqueaderos(controlador.getParqueos());
+                vista.mostrarParqueaderos(controlador.getNumParqueos(), controlador.getParqueosOcupados());
 
                 // Verificar victoria o derrota
                 if (controlador.verificarVictoria()) {
