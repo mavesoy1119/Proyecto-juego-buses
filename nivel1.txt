@@ -1,10 +1,8 @@
 7 7
 4
-
-Carro rojo 0 2 H
-Carro amarillo 2 0 H
-Bus azul 2 2 V
-Buseta verde 2 4 H
-
+Carro Rojo 0 2 S
+Carro Amarillo 2 0 E
+Bus Azul 2 2 S
+Buseta Verde 2 4 E
 PASAJEROS
-amarillo amarillo amarillo amarillo amarillo amarillo rojo rojo rojo rojo rojo rojo rojo rojo rojo rojo verde verde verde verde azul azul azul azul
+Amarillo Amarillo Amarillo Amarillo Amarillo Amarillo Rojo Rojo Rojo Rojo Rojo Rojo Rojo Rojo Rojo Rojo Verde Verde Verde Verde Azul Azul Azul Azul
