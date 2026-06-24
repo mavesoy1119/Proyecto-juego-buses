@@ -1,3 +1,17 @@
+/*
+Clase: Tablero
+Curso: Fundamentos de Programacion Orientada a Objetos (FPOO)
+Universidad del Valle
+
+Documentacion CRC:
+
+Clase: Tablero
+
+Responsabilidades:
+    -
+Colaboradores:
+-
+*/
 #ifndef TABLERO_H
 #define TABLERO_H
 
@@ -18,6 +32,7 @@ class Tablero
 
     Tablero(int auxFilas, int auxColumnas);
     ~Tablero();
+    
     int getFilas() const;
     int getColumnas() const;
 
