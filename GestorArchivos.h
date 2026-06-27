@@ -26,10 +26,7 @@ Colaboradores:
       de estos tipos concretos usando new, pero los guarda como punteros a 
       Vehiculo* para aprovechar el polimorfismo.
     - Pasajero: Colabora mediante dependencia local. Crea objetos Pasajero con 
-      new temporalmente para agregarlos a la Fila. No los almacena directamente, 
-      sino que los pasa a fila->agregarPasajero(), que los copia o almacena.
-    - Archivos de texto (ifstream): Colabora mediante dependencia de biblioteca. 
-      Usa ifstream para leer el archivo, y istringstream para parsear cada línea.
+      new temporalmente para agregarlos a la Fila. 
 */
 #ifndef GESTORARCHIVOS_H
 #define GESTORARCHIVOS_H

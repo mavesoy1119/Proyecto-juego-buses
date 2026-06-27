@@ -16,7 +16,6 @@ Responsabilidades:
     - Mostrar el estado de los parqueaderos (ocupados o libres) en formato visual 
       (mostrarParqueaderos).
     - Solicitar al usuario qué vehículo desea mover (solicitarMovimiento).
-    - Mostrar mensajes informativos al usuario (mostrarMensaje).
     - Mostrar mensajes de victoria (mostrarVictoria) y derrota (mostrarDerrota) 
       con formato visual atractivo.
 
